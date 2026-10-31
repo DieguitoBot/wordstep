@@ -45,3 +45,66 @@ add('wh','___ books did you buy? — Three.',['How much','How many','How long'],
 add('wh','Choose the correct question.',['What you would do?','What would you do?','What would do you?'],'What would you do?','WH + modal + sujeto + verbo: What would you do?');
 add('wh','___ does this cost? — Ten dollars.',['How much','How many','How often'],'How much','Para preguntar por el precio usa how much.');
 const SPEAKING=[['What would you do if you had a month off?','I would… if I had…','I would travel around Peru if I had a month off. I would visit new places and practise English with other travellers.','second'],['What do you wish you could do better?','I wish I could… because…','I wish I could speak English more confidently because I want to meet people from other countries.','wish'],['You called a friend, but they didn’t answer. What might have happened?','They might have… / They must have…','They might have left their phone at home. They might have been busy studying. I don’t have enough evidence to be sure.','modals'],['Where would you live if you could live anywhere? Why?','If I could…, I would… because…','If I could live anywhere, I would live near the sea because I enjoy swimming and warm weather.','second'],['What do you wish you had done differently last week?','I wish I had…','I wish I had revised more vocabulary last week. I spent too much time on my phone.','wish'],['Ask a friend about their last holiday. Use three WH questions.','Where did…? / Who did…? / How long…?','Where did you go? Who did you travel with? How long did you stay there?','wh'],['Your friend got full marks after studying every day. Make a strong past deduction.','They must have…','They must have worked really hard. They must have understood the questions well.','modals'],['What would you change about your daily routine?','If I…, I would…','If I had more free time, I would exercise every morning. I would also read a little in English.','second']];
+
+// Phase 2 is appended to preserve all existing question IDs and saved errors.
+const PHASES={1:{title:'Fase 1 · Repaso anterior',topics:['wish','second','modals','wh']},2:{title:'Fase 2 · Nuevos temas',topics:['third','should','adjectives']}};
+Object.assign(TOPICS,{
+third:{title:'Third conditional',desc:'Imagina un pasado diferente y sus consecuencias.',icon:'↶',rules:[
+['Un pasado que no ocurrió','If + had + past participle, would have + past participle','If I had studied harder, I would have passed the exam.','Si hubiera estudiado más, habría aprobado. En realidad, no estudié lo suficiente y no aprobé. Tanto la condición como el resultado son imaginarios en el pasado.'],
+['Negaciones y orden','If + hadn’t + participle, wouldn’t have + participle','If we hadn’t left late, we wouldn’t have missed the train.','Si no hubiéramos salido tarde, no habríamos perdido el tren. También puedes empezar por el resultado: We wouldn’t have missed the train if we hadn’t left late. En ese orden no necesitas coma.'],
+['Posibilidad y capacidad','could / might have + past participle','If you had called me, I could have helped you.','Could have expresa capacidad o posibilidad; might have, un resultado posible menos seguro. No uses would have en la cláusula con if para este patrón.'],
+['Contracciones y comparación','I’d studied = I had studied · I’d have passed = I would have passed','Second: If I studied, I would pass. Third: If I had studied, I would have passed.','Second conditional imagina el presente o futuro; third conditional imagina un pasado diferente. Participios útiles: go → gone, see → seen, take → taken, tell → told.'] ]},
+should:{title:'Should have',desc:'Expresa arrepentimientos y críticas sobre el pasado.',icon:'✧',rules:[
+['Algo que habría sido mejor hacer','should have + past participle','I should’ve started work on the project earlier.','Debería haber empezado antes. Expresas arrepentimiento sobre una acción pasada y una alternativa mejor que lo que ocurrió. Should’ve significa should have, nunca should of.'],
+['Algo que habría sido mejor evitar','shouldn’t have + past participle','You shouldn’t have told her about it.','No deberías habérselo contado. Puedes criticar a otra persona o a ti mismo: I shouldn’t have forced them to do it. I should’ve solved the problem another way.'],
+['Posición de los adverbios','should + probably / just + have + past participle','I should probably have told them earlier. / I should just have asked.','Probably y just suelen ir antes de have. Otra posición es posible según el énfasis: I probably should have told them earlier.'],
+['Respuestas de tu material','1 past · 2 better · 3 before','I should have studied. / If I had studied, I would have passed.','Should have evalúa una acción pasada: habría sido mejor estudiar. Third conditional relaciona una condición pasada imaginaria con su resultado. En este uso de arrepentimiento, las respuestas son pasado, mejores alternativas y antes de have.'] ]},
+adjectives:{title:'Adjective word order',desc:'Ordena las descripciones y conserva los sustantivos compuestos.',icon:'≋',rules:[
+['Opinión antes de hechos','opinion + fact adjectives + noun','It’s a beautiful old house.','Primero tu opinión (beautiful, lovely, good), después características como tamaño, edad, color, origen y material.'],
+['Orden de tu material','opinion → size → age → colour → origin → material → noun','It’s a small old red Italian leather handbag.','Tamaño → edad → color → origen → material → sustantivo. Es una regla general; normalmente no acumulamos más de tres adjetivos de hecho. El ejemplo largo sirve para recordar el orden.'],
+['Dos colores','colour + and + colour','A black and white cat. / A green and yellow cotton T-shirt.','Los dos colores se unen con and y ocupan juntos el lugar del color: I’ve got a big old black and white Persian cat.'],
+['Sustantivos compuestos','adjectives + compound noun','A lovely wooden table lamp. / A new red sports car. / Good strong walking boots.','Mantén juntas las palabras de table lamp, sports car y walking boots. Coloca la descripción delante del conjunto; no insertes adjetivos entre las dos palabras.'] ]}
+});
+const PHASE_TWO_QUESTIONS={
+third:[
+['If I ___ harder, I would have passed.',['had studied','studied','would have studied'],'had studied','La condición pasada imaginaria usa had + participio.'],
+['If she had left earlier, she ___ the bus.',['would have caught','would catch','had caught'],'would have caught','El resultado pasado usa would have + participio: caught.'],
+['If we ___ late, we wouldn’t have missed the train.',['hadn’t left','didn’t leave','wouldn’t leave'],'hadn’t left','La condición negativa usa hadn’t + participio.'],
+['I would have helped if you ___ me.',['had asked','would ask','ask'],'had asked','Aunque if vaya al final, conserva had + participio.'],
+['If he had seen the sign, he ___ there.',['wouldn’t have parked','won’t park','didn’t park'],'wouldn’t have parked','Resultado hipotético negativo en el pasado: wouldn’t have parked.'],
+['Which sentence imagines a different past?',['If I had known, I would have called.','If I knew, I would call.','If I know, I will call.'],'If I had known, I would have called.','Had known y would have called sitúan la hipótesis en el pasado.'],
+['If you had called, I could ___ you.',['have helped','helped','have help'],'have helped','Could have + participio expresa capacidad o posibilidad pasada.'],
+['If it had stopped raining, we might ___ out.',['have gone','have went','go'],'have gone','Después de have necesitas gone, el participio de go. Might expresa posibilidad.'],
+['In “If I’d known”, I’d means ___.',['I had','I would','I did'],'I had','Delante del participio known, I’d representa I had en esta condición.'],
+['I didn’t set an alarm and woke up late. Choose the third conditional.',['If I had set an alarm, I wouldn’t have woken up late.','If I set an alarm, I won’t wake up late.','If I would have set an alarm, I woke up late.'],'If I had set an alarm, I wouldn’t have woken up late.','Imagina cambiar la causa y el resultado pasados: had set + wouldn’t have woken.']
+],
+should:[
+['Regrets with should have refer to ___ events.',['past','present','future'],'past','En este uso, should have expresa arrepentimientos sobre eventos pasados.'],
+['We imagine ___ alternatives to what happened.',['better','worse','identical'],'better','Al expresar arrepentimiento pensamos en una alternativa mejor.'],
+['In “I should probably have told them”, probably comes ___ have.',['before','after','inside'],'before','La posición habitual de probably y just en este patrón es antes de have.'],
+['I should ___ work on the project earlier.',['have started','have start','had started'],'have started','La estructura es should + have + participio.'],
+['You shared her secret. You ___ her friends about it.',['shouldn’t have told','shouldn’t tell','shouldn’t have tell'],'shouldn’t have told','Criticas una acción ya realizada: shouldn’t have told.'],
+['I forced them to do it. I should have ___ another way.',['solved the problem','solve the problem','solving the problem'],'solved the problem','Después de have usa el participio solved.'],
+['Which is also a correct position for probably?',['I probably should have told them.','I should have probably tell them.','I probably should had told them.'],'I probably should have told them.','Probably puede ir antes de should según el énfasis, manteniendo have + participio.'],
+['I should’ve asked. Should’ve means ___.',['should have','should of','should had'],'should have','Should’ve es la contracción de should have.'],
+['I lost my work. I should just ___ a copy.',['have saved','saved','have save'],'have saved','Just va antes de have; saved es el participio.'],
+['We were rude. We ___ more polite.',['should have been','should have be','should had been'],'should have been','El participio de be es been: deberíamos haber sido más amables.']
+],
+adjectives:[
+['Choose the usual adjective order.',['a beautiful old house','an old beautiful house','a house old beautiful'],'a beautiful old house','La opinión beautiful suele ir antes de la edad old.'],
+['Choose the order: size → age → colour.',['a big old black bag','an old black big bag','a black big old bag'],'a big old black bag','Big indica tamaño, old edad y black color.'],
+['Choose the order: colour → origin → material.',['a red Italian leather handbag','a leather red Italian handbag','an Italian leather red handbag'],'a red Italian leather handbag','El color va antes del origen y el material.'],
+['Choose the natural description of two colours.',['a black and white cat','a black white and cat','a cat and black white'],'a black and white cat','Une los dos colores con and antes del sustantivo.'],
+['Choose the usual order.',['a green and yellow cotton T-shirt','a cotton green and yellow T-shirt','a green cotton and yellow T-shirt'],'a green and yellow cotton T-shirt','Los dos colores forman un grupo que precede al material cotton.'],
+['Keep the compound noun together.',['a lovely wooden table lamp','a lovely table wooden lamp','a table lovely wooden lamp'],'a lovely wooden table lamp','Table lamp debe mantenerse unido; lovely y wooden van delante.'],
+['Choose the usual description.',['a new red sports car','a new sports red car','a sports new red car'],'a new red sports car','Edad y color van antes del compuesto sports car.'],
+['Keep walking boots together.',['good strong walking boots','good walking strong boots','walking good strong boots'],'good strong walking boots','Los adjetivos describen el conjunto walking boots sin separarlo.'],
+['Choose the order: size → age → colour → origin.',['a big old black and white Persian cat','an old Persian big black and white cat','a Persian black and white old big cat'],'a big old black and white Persian cat','Big → old → black and white → Persian; el sustantivo cat va al final.'],
+['Which type of adjective usually comes first?',['opinion','material','origin'],'opinion','La opinión suele preceder a los adjetivos que describen hechos.']
+]};
+for(const [topic,questions] of Object.entries(PHASE_TWO_QUESTIONS))for(const q of questions)add(topic,...q);
+SPEAKING.push(
+['What would have happened if you had studied more last week?','If I had…, I would have…','If I had studied more last week, I would have felt more confident in class.','third'],
+['What should you have done differently on your last project?','I should have… / I shouldn’t have…','I should have started earlier. I shouldn’t have left everything until the last day.','should'],
+['Describe a bag and a lamp. Use two or three adjectives for each.','It is a… / I have a…','I have a small black leather bag. There is a lovely old wooden table lamp in my room.','adjectives']
+);

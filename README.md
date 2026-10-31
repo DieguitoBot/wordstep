@@ -4,9 +4,11 @@ Página gratuita de práctica de inglés B1+ para estudiantes hispanohablantes. 
 
 - 60 palabras con traducciones y ejemplos contextualizados.
 - Tarjetas, buscador, filtros y juego de parejas.
-- 40 ejercicios explicados: wish, second conditional, past modals of deduction y WH questions.
-- Simulacro de 12 preguntas equilibrado entre los cuatro temas.
-- Repaso de errores y 8 propuestas de expresión oral con borradores y respuestas modelo.
+- Fase 1: 40 ejercicios de wish, second conditional, past modals of deduction y WH questions.
+- Fase 2 (seleccionada inicialmente): 30 ejercicios de third conditional, should have y adjective word order, con guías en español.
+- Selector de fase que recuerda tu elección y conserva el progreso anterior.
+- Simulacro de 12 preguntas equilibrado entre los temas de la fase seleccionada.
+- Repaso de errores y 11 propuestas de expresión oral con borradores y respuestas modelo.
 - Progreso en localStorage por navegador, sin sincronización ni envío de respuestas.
 
 ## Uso local

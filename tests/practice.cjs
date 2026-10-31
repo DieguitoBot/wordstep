@@ -10,10 +10,18 @@ for(const f of ['data.js','app.js'])vm.runInContext(fs.readFileSync(path.join(__
 vm.runInContext(`
 assert.equal(WORDS.length,60);
 assert.equal(new Set(WORDS.map(w=>w.id)).size,60);
-assert.equal(QUESTIONS.length,40);
+assert.equal(QUESTIONS.length,70);
 for(const q of QUESTIONS){assert(q.options.includes(q.answer));assert.equal(new Set(q.options).size,q.options.length);assert(q.explanation.length>10);}
 for(const t of Object.keys(TOPICS))assert.equal(QUESTIONS.filter(q=>q.topic===t).length,10);
 for(const v of ['inicio','palabras','relacionar','gramatica','hablar','repasar','progreso']){go(v);assert(main.innerHTML.length>100);}
+assert.equal(phase,2);
+for(const id of [1,2]){selectPhase(id);assert.equal(mixedQuestions().length,12);assert(mixedQuestions().every(q=>PHASES[id].topics.includes(q.topic)));assert.equal(topic,PHASES[id].topics[0]);grammar();assert(main.innerHTML.includes(PHASES[id].title));}
+selectPhase(2);
+assert.equal(JSON.parse(localStorage.getItem('wordstep-v1')).phase,2);
+assert.equal(new Set(QUESTIONS.map(q=>q.id)).size,70);
+startQuiz(QUESTIONS.slice(40,42),'Phase 2');
+let newQ=quiz.items[0];answer(newQ.options.findIndex(o=>o!==newQ.answer));assert(state.errors.includes(newQ.id));reviewQuiz();newQ=quiz.items[0];answer(newQ.options.indexOf(newQ.answer));assert(!state.errors.includes(newQ.id));
+state.attempts=0;state.correct=0;
 startQuiz(QUESTIONS.slice(0,2),'Test');
 let q=quiz.items[0];answer(q.options.findIndex(o=>o!==q.answer));assert(state.errors.includes(q.id));assert.equal(state.attempts,1);
 answer(0);assert.equal(state.attempts,1,'Repeated taps must not increase attempts');
